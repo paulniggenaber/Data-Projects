@@ -3,7 +3,9 @@
 ## About This Project
 This project was done in the cnetxt of the first semester course 'Object Oriented Programming with Python'
 of my master in Data Science.
+
 Final Grade: ***A***
+
 It demonstrates the implementation of a variational autoencoder using neural networks.
 In this project I implemented a Variational Autoencoder (VAE) using TensorFlow.
 It includes a modular architecture (Encoder, Decoder, BiCoder), a custom DataLoader, training utilities, 
