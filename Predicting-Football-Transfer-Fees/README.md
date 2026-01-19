@@ -6,6 +6,14 @@ The most extensive description can be found in final_report.pdf.
 ---
 
 ## Project Overview
+### Project Pipeline
+transfermarketscraper + transfer_parser.py + tr_scraping.py --> transfer_dataset_4.csv, transfer_dataset_5.csv --> build_transfer_data_csv.py --> transfer_data.csv
+
+fbrefscraper.py + build_player_data_csv.py --> player_data.csv
+
+player_data.csv + transfer_data.csv + run.py --> dataprocessor.py + models.py --> results
+
+---
 
 ### Motivation
 Transfer fees in professional football are influenced by both objective performance indicators and subjective expectations about a player’s future value. Accurately modeling these fees is challenging due to heavy skewness, missing data, and complex nonlinear relationships. This project aims to quantify these effects using modern machine learning techniques while maintaining interpretability and methodological rigor.
@@ -30,7 +38,7 @@ The dataset combines multiple sources of player- and transfer-related informatio
   - Log-transformed transfer fees
   - Aggregated performance metrics
 
-Missing values are handled systematically, primarily via **median imputation**, which is robust to skewed distributions typical for football data. Only features relevant for prediction are retained; non-informative identifiers (e.g. shirt numbers) are removed.
+Missing values are handled systematically, primarily via **median imputation**, which is robust to skewed distributions typical for football data. Only features relevant for prediction are retained; non-informative identifiers due to multicollinearity are removed.
 
 ---
 
@@ -39,7 +47,7 @@ The exploratory analysis focuses on:
 
 - Distributional properties of transfer fees (raw and log-transformed)
 - Differences across leagues
-- Visulaization of non-linear relationship
+- Visualization of non-linear relationship
 - Correlation structures among predictors
 - Identification and removal of highly collinear features (absolute correlation > 0.9)
 
@@ -97,9 +105,3 @@ The final model balances predictive accuracy with generalizability.
 - Incorporation of fame based features (Instagram follower)
 
 ---
-## Project Pipeline
-transfermarketscraper + transfer_parser.py + tr_scraping.py --> transfer_dataset_4.csv, transfer_dataset_5.csv --> build_transfer_data_csv.py --> transfer_data.csv
-
-fbrefscraper.py + build_player_data_csv.py --> player_data.csv
-
-player_data.csv + transfer_data.csv + run.py --> dataprocessor.py + models.py --> results
